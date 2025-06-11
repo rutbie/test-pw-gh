@@ -42,6 +42,7 @@ jobs:
   deploy-report:
     needs: test
     runs-on: ubuntu-latest
+
     permissions:
       contents: write           # Needed to push to gh-pages branch
 
