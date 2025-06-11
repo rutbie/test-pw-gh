@@ -64,4 +64,4 @@ jobs:
           # Folder containing the Playwright HTML report to publish
 
       - name: Print GitHub Pages URL
-        run: echo "Playwright report available at: https://rutbie.github.io/test-pw-gh/"
+        run: echo "Playwright report available at https://rutbie.github.io/test-pw-gh/"
