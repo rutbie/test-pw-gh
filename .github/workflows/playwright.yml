@@ -42,10 +42,18 @@ jobs:
   deploy-report:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write           # Needed to push to gh-pages branch
 
     steps:
       - uses: actions/checkout@v4
         # Check out repo for deployment
+
+      - name: Download Playwright report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
 
       - name: Deploy Playwright report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
