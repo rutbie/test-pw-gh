@@ -7,9 +7,6 @@ on:
   #   branches: [ main, master ]   # Auto-run on PR creation to these branches
   workflow_dispatch:               # Manual trigger only
 
-# uses - pre-built jobs from FH
-# name - cistom jobs with commands
-
 jobs:
   test:
     timeout-minutes: 60
@@ -42,7 +39,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-deploy-report:
+  deploy-report:
     needs: test
     runs-on: ubuntu-latest
 
@@ -55,4 +52,4 @@ deploy-report:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./playwright-report
-          # Folder containing the Playwright HTML report to publish    
+          # Folder containing the Playwright HTML report to publish
