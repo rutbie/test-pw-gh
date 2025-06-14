@@ -8,7 +8,8 @@ export default defineConfig({
   reporter: [['html', { open: 'never' }]],
   use: {
     headless: process.env.CI ? true : false,
-    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
   },
 
   projects: [

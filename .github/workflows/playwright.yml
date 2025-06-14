@@ -65,5 +65,10 @@ jobs:
           publish_dir: ./playwright-report
           # Folder containing the Playwright HTML report to publish
 
-      - name: Print GitHub Pages URL
-        run: echo "::notice::Playwright report available at https://rutbie.github.io/test-pw-gh/"
+      # - name: Print GitHub Pages URL
+      #   run: echo "::notice::Playwright report available at https://rutbie.github.io/test-pw-gh/"
+
+      - name: Add report link to job summary
+        run: |
+          echo "## 📊 Playwright Test Report" >> $GITHUB_STEP_SUMMARY
+          echo "View the full test report here: [Open Report](https://rutbie.github.io/test-pw-gh/)" >> $GITHUB_STEP_SUMMARY
