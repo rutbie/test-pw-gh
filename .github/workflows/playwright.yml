@@ -11,6 +11,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     steps:
       - uses: actions/checkout@v4
@@ -42,6 +43,7 @@ jobs:
   deploy-report:
     needs: test
     runs-on: ubuntu-latest
+    if: always() && !cancelled()
 
     permissions:
       contents: write           # Needed to push to gh-pages branch
@@ -64,4 +66,4 @@ jobs:
           # Folder containing the Playwright HTML report to publish
 
       - name: Print GitHub Pages URL
-        run: echo "Playwright report available at https://rutbie.github.io/test-pw-gh/"
+        run: echo "::notice::Playwright report available at https://rutbie.github.io/test-pw-gh/"
